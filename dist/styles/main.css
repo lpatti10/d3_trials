@@ -1,1 +1,1 @@
-*{box-sizing:border-box}Base styles body{background:#fafafa;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;color:#333}
+*{box-sizing:border-box}Base styles body{background:#fafafa;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;color:#333}.staticBasic div{font:10px sans-serif;background-color:steelblue;text-align:right;padding:3px;margin:1px;color:#fff}.chord path{fill-opacity:.67;stroke:#000;stroke-width:.5px}.container{padding:50px}.container .item{padding-left:20px}.container .highlight{color:#fff;background:#2aa198;font-size:2em}

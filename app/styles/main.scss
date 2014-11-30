@@ -9,6 +9,15 @@ body {
   color: #333;
 }
 
+.staticBasic div {
+  font: 10px sans-serif;
+  background-color: steelblue;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  color: white;
+}
+
 .chord path {
   fill-opacity: .67;
   stroke: #000;
@@ -16,15 +25,15 @@ body {
 }
 
 
-// .container {
-// 	padding: 50px;
-// 	.item {
-// 		padding-left: 20px;
-// 	}
-// 	// fails when nested because parent '.item' is set to false, but means padding isn't inherited
-// 	.highlight {
-// 		color: white;
-// 		background: #2aa198;
-// 		font-size: 2em;
-// 	}
-// }
+.container {
+	padding: 50px;
+	.item {
+		padding-left: 20px;
+	}
+	// fails when nested because parent '.item' is set to false, but means padding isn't inherited
+	.highlight {
+		color: white;
+		background: #2aa198;
+		font-size: 2em;
+	}
+}
