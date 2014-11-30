@@ -7,11 +7,26 @@ body {
   background: #fafafa;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333;
+  canvas {
+	  position: absolute;
+	  top: 0;
+	}
 }
+
+
 
 .staticBasic div {
   font: 10px sans-serif;
   background-color: steelblue;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  color: white;
+}
+
+.basic2 div {
+  font: 10px sans-serif;
+  background-color: red;
   text-align: right;
   padding: 3px;
   margin: 1px;

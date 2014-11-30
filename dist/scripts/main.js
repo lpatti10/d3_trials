@@ -1,3 +1,57 @@
+
+
+var data = d3.range(500).map(function() {
+  return {xloc: 0, yloc: 0, xvel: 0, yvel: 0};
+});
+
+var width = 960,
+    height = 500,
+    angle = 2 * Math.PI;
+
+var x = d3.scale.linear()
+    .domain([-5, 5])
+    .range([0, width]);
+
+var y = d3.scale.linear()
+    .domain([-5, 5])
+    .range([0, height]);
+
+var time0 = Date.now(),
+    time1;
+
+var fps = d3.select("#fps span");
+
+// var canvas = d3.select("body").append("canvas")
+//     .attr("width", width)
+//     .attr("height", height);
+
+var canvas1 = d3.select("canvas")
+    .attr("width", width)
+    .attr("height", height);
+
+var context = canvas1.node().getContext("2d");
+context.fillStyle = "steelblue";
+context.strokeStyle = "#666";
+context.strokeWidth = 1.5;
+
+d3.timer(function() {
+  context.clearRect(0, 0, width, height);
+            
+  data.forEach(function(d) {
+    d.xloc += d.xvel;
+    d.yloc += d.yvel;
+    d.xvel += 0.04 * (Math.random() - .5) - 0.05 * d.xvel - 0.0005 * d.xloc;
+    d.yvel += 0.04 * (Math.random() - .5) - 0.05 * d.yvel - 0.0005 * d.yloc;
+    context.beginPath();
+    context.arc(x(d.xloc), y(d.yloc), Math.min(1 + 1000 * Math.abs(d.xvel * d.yvel), 10), 0, angle);
+    context.fill();
+    context.stroke();
+  });
+
+  time1 = Date.now();
+  fps.text(Math.round(1000 / (time1 - time0)));
+  time0 = time1;
+});
 // Working with D3 Layouts: Pie Chart (basic 3-part)
 var width = 400,
 	height = 400,
@@ -223,6 +277,13 @@ force.on("tick", function(e) {
 force.start();
 
 
+
+var data = [4, 8, 15, 16, 23, 42];
+
+var x = d3.scale.linear()
+    .domain([0, d3.max(data)])
+    .range([0, 420]);
+
 d3.select(".basic2")
   .selectAll("div")
     .data(data)
@@ -231,20 +292,22 @@ d3.select(".basic2")
     .text(function(d) { return d; });
 
 
-//First, we select the chart container using a class selector.
-var chart = d3.select(".basic2");
 
-//Next we initiate the data join by defining the selection to which we will join data.
-var bar = chart.selectAll("div");
 
-//Next we join the data (defined previously) to the selection using selection.data. 
-var barUpdate = bar.data(data);
+// //First, we select the chart container using a class selector.
+// var chart = d3.select(".basic2");
 
-var barEnter = barUpdate.enter().append("div");
+// //Next we initiate the data join by defining the selection to which we will join data.
+// var bar = chart.selectAll("div");
 
-barEnter.style("width", function(d) { return d * 10 + "px"; });
+// //Next we join the data (defined previously) to the selection using selection.data. 
+// var barUpdate = bar.data(data);
 
-barEnter.text(function(d) { return d; });
+// var barEnter = barUpdate.enter().append("div");
+
+// barEnter.style("width", function(d) { return d * 10 + "px"; });
+
+// barEnter.text(function(d) { return d; });
 // From http://mkweb.bcgsc.ca/circos/guide/tables/
 var matrix = [
   [11975,  5871, 8916, 2868],
